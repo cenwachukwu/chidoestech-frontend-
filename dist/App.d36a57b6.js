@@ -28320,11 +28320,11 @@ var _reactDom = _interopRequireDefault(require("react-dom"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function App(props) {
+var App = function App() {
   return _react.default.createElement("div", {
     className: "App"
   }, _react.default.createElement("h2", null, "Welcome"));
-}
+};
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
