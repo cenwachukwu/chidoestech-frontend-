@@ -1,9 +1,10 @@
 import React from 'react';
+import './Navbar.css';
 
 function Navbar(props) {
   return (
     <div className="navContainer">
-      <h2>Welcome</h2>
+      <div className="navlinkscontainer"></div>
     </div>
   );
 }
