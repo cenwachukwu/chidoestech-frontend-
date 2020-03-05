@@ -1,8 +1,8 @@
 {
-  "name": "chidoestech-frontend-",
+  "name": "chidoestech",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Building the react frontend for chidoestech blog",
+  "main": "src/App.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
