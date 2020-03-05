@@ -28311,23 +28311,248 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
+}
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"Navbar/Navbar.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/dropdown/dropdown.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/dropdown/dropdown.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("./dropdown.css");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var Dropdown = function Dropdown(_ref) {
+  var _ref$activatorText = _ref.activatorText,
+      activatorText = _ref$activatorText === void 0 ? 'Categories' : _ref$activatorText,
+      _ref$items = _ref.items,
+      items = _ref$items === void 0 ? [] : _ref$items;
+  // refs lets you mark an element as important for focus
+  var activatorRef = (0, _react.useRef)(null);
+  var dropdownListRef = (0, _react.useRef)(null);
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isOpen = _useState2[0],
+      setIsOpen = _useState2[1];
+
+  var clickHandler = function clickHandler(e) {
+    setIsOpen(!isOpen);
+  };
+
+  var keyHandler = function keyHandler(e) {
+    console.log(e.code); // Code for esc is 27
+
+    if (e.code === 27 && isOpen) {
+      setIsOpen(false);
+    }
+  }; //   if what the user is clicking isnt in the dropdown, close the dropdown
+
+
+  var clickOutsideHandler = function clickOutsideHandler(e) {
+    //   event.target
+    if (dropdownListRef.current.contains(event.target) || activatorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setIsOpen(false);
+  }; //   we'll use useEffect toggled with isOpen to send focus to the first element in the dropdown
+  //   we'll also use it to be able to close the dropdown by clicking outside of it. we will achieve this using a document.addEventListener
+
+
+  (0, _react.useEffect)(function () {
+    if (isOpen) {
+      dropdownListRef.current.querySelector('a').focus();
+      document.addEventListener('mousedown', clickOutsideHandler);
+    } else {
+      // if it's not open and to prevent a memory leak, we remove eventListener
+      document.removeEventListener('mousedown', clickOutsideHandler);
+    }
+  }, [isOpen]);
+  return _react.default.createElement("div", {
+    className: "DropDown",
+    onKeyUp: keyHandler
+  }, _react.default.createElement("button", {
+    "aria-haspopup": "true",
+    "aria-controls": "dropdown1",
+    onClick: clickHandler,
+    ref: activatorRef,
+    className: "dropdown-ListActivator"
+  }, activatorText), _react.default.createElement("ul", {
+    id: "dropdown1",
+    ref: dropdownListRef // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
+    ,
+    className: "dropdown-List ".concat(isOpen ? 'active' : '') // adding role="list" helps us make sure that assistive technology eg screen readers will annouce how many items are in the list
+    ,
+    role: "list"
+  }, items.map(function (item, index) {
+    return _react.default.createElement("li", {
+      key: index
+    }, _react.default.createElement("a", {
+      href: item.url
+    }, "item.text"));
+  })));
+};
+
+var _default = Dropdown;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./dropdown.css":"components/dropdown/dropdown.css"}],"components/searchbar/searchbar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Searchbar = function Searchbar() {
+  return _react.default.createElement("div", {
+    className: "Search"
+  }, _react.default.createElement("input", null));
+};
+
+var _default = Searchbar;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"Navbar/Navbar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+require("./Navbar.css");
+
+var _dropdown = _interopRequireDefault(require("../components/dropdown/dropdown"));
+
+var _searchbar = _interopRequireDefault(require("../components/searchbar/searchbar"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Navbar(props) {
+  return _react.default.createElement("div", {
+    className: "navContainer"
+  }, _react.default.createElement("div", {
+    className: "navlinkscontainer"
+  }, _react.default.createElement("a", null, "Logo"), _react.default.createElement("ul", null, _react.default.createElement("li", null, ' ', _react.default.createElement("a", null, "About me")), _react.default.createElement("li", null, _react.default.createElement(_dropdown.default, null)), _react.default.createElement("li", null, _react.default.createElement("a", null, "contact me"))), _react.default.createElement(_searchbar.default, null)));
+}
+
+var _default = Navbar;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Navbar.css":"Navbar/Navbar.css","../components/dropdown/dropdown":"components/dropdown/dropdown.js","../components/searchbar/searchbar":"components/searchbar/searchbar.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
+var _Navbar = _interopRequireDefault(require("./Navbar/Navbar"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var App = function App() {
   return _react.default.createElement("div", {
     className: "App"
-  }, _react.default.createElement("h2", null, "Welcome"));
+  }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, null)), _react.default.createElement("h2", null, "Welcome"));
 };
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./Navbar/Navbar":"Navbar/Navbar.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
