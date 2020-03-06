@@ -3,7 +3,7 @@ import './Navbar.css';
 import Dropdown from '../dropdown/dropdown';
 import CustomizedInputBase from '../searchbar/searchbar';
 
-function Navbar() {
+const Navbar = () => {
   return (
     <div className="navContainer">
       <div className="navlinkscontainer">
@@ -22,6 +22,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;

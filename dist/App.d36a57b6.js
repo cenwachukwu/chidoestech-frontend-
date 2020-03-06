@@ -46413,13 +46413,13 @@ var _searchbar = _interopRequireDefault(require("../searchbar/searchbar"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Navbar() {
+var Navbar = function Navbar() {
   return _react.default.createElement("div", {
     className: "navContainer"
   }, _react.default.createElement("div", {
     className: "navlinkscontainer"
   }, _react.default.createElement("a", null, "Logo"), _react.default.createElement("ul", null, _react.default.createElement("li", null, _react.default.createElement("a", null, "About me")), _react.default.createElement("li", null, _react.default.createElement(_dropdown.default, null)), _react.default.createElement("li", null, _react.default.createElement("a", null, "contact me")))));
-}
+};
 
 var _default = Navbar;
 exports.default = _default;
@@ -46458,15 +46458,21 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 var Carousel = /*#__PURE__*/function (_React$Component) {
   _inherits(Carousel, _React$Component);
 
-  function Carousel() {
+  function Carousel(props) {
+    var _this;
+
     _classCallCheck(this, Carousel);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Carousel).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Carousel).call(this, props));
+    _this.state = {}; // this.onRenderMapData = this.onRenderMapData.bind(this);
+
+    return _this;
   }
 
   _createClass(Carousel, [{
     key: "render",
     value: function render() {
+      console.log(this.props.data);
       return _react.default.createElement("div", null, _react.default.createElement("h1", null, "block"));
     }
   }]);
