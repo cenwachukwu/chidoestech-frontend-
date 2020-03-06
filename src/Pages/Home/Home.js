@@ -1,20 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Carousel from '../../components/carousel/carousel';
 
-const Home = () => {
-  const [isData, setIsData] = useState([]);
-
-  const url = 'https://chidoestech.herokuapp.com/article';
-
-  useEffect(() => {
-    Axios.get(url).then(({ data }) => {
-      setIsData(data.data);
-    });
-  }, []);
-
+const Home = props => {
+  //   console.log(props.data);
   return (
     <div className="Home">
-      <Carousel data={isData} />
+      <Carousel data={props.data} />
       <h2>We are home</h2>
     </div>
   );

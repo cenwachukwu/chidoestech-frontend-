@@ -22,7 +22,9 @@ const App = () => {
         <nav>
           <Navbar />
         </nav>
-
+        <Router>
+          <Home path="/" data={isData} />
+        </Router>
         <h2>Welcome</h2>
       </div>
     </React.StrictMode>
