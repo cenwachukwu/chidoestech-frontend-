@@ -10,15 +10,15 @@ const App = () => {
 
   useEffect(() => {
     Axios.get(url).then(({ data }) => {
-      console.log(data);
-      setIsData(data);
+      //   console.log(data.data);
+      setIsData(data.data);
     });
   }, []);
 
   return (
     <div className="App">
       <nav>
-        <Navbar />
+        <Navbar data={isData} />
       </nav>
       <h2>Welcome</h2>
     </div>

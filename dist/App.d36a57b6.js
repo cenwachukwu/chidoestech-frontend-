@@ -44627,6 +44627,7 @@ var _searchbar = _interopRequireDefault(require("../components/searchbar/searchb
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Navbar(props) {
+  console.log(props.data);
   return _react.default.createElement("div", {
     className: "navContainer"
   }, _react.default.createElement("div", {
@@ -44671,13 +44672,15 @@ var App = function App() {
   (0, _react.useEffect)(function () {
     _axios.default.get(url).then(function (_ref) {
       var data = _ref.data;
-      console.log(data);
-      setIsData(data);
+      //   console.log(data.data);
+      setIsData(data.data);
     });
   }, []);
   return _react.default.createElement("div", {
     className: "App"
-  }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, null)), _react.default.createElement("h2", null, "Welcome"));
+  }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, {
+    data: isData
+  })), _react.default.createElement("h2", null, "Welcome"));
 };
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
