@@ -44664,10 +44664,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var App = function App() {
   var _useState = (0, _react.useState)(),
       _useState2 = _slicedToArray(_useState, 2),
-      data = _useState2[0],
+      isData = _useState2[0],
       setIsData = _useState2[1];
 
-  (0, _react.useEffect)(function () {}, []);
+  var url = 'https://chidoestech.herokuapp.com/article';
+  (0, _react.useEffect)(function () {
+    _axios.default.get(url).then(function (_ref) {
+      var data = _ref.data;
+      console.log(data);
+      setIsData(data);
+    });
+  }, []);
   return _react.default.createElement("div", {
     className: "App"
   }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, null)), _react.default.createElement("h2", null, "Welcome"));

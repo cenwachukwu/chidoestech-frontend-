@@ -4,9 +4,16 @@ import Axios from 'axios';
 import Navbar from './Navbar/Navbar';
 
 const App = () => {
-  const [data, setIsData] = useState();
+  const [isData, setIsData] = useState();
 
-  useEffect(() => {}, []);
+  const url = 'https://chidoestech.herokuapp.com/article';
+
+  useEffect(() => {
+    Axios.get(url).then(({ data }) => {
+      console.log(data);
+      setIsData(data);
+    });
+  }, []);
 
   return (
     <div className="App">
