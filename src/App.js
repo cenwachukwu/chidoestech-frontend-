@@ -10,19 +10,16 @@ const App = () => {
 
   useEffect(() => {
     Axios.get(url).then(({ data }) => {
-      //   console.log(data.data);
       setIsData(data.data);
     });
   }, []);
 
-  const mapedData = useMemo(() => {
-    return isData.map((data, index) => {
-      console.log(data);
-    });
-  }, [isData]);
-
   return (
     <div className="App">
+      <nav>
+        <Navbar data={isData} />
+      </nav>
+
       <h2>Welcome</h2>
     </div>
   );

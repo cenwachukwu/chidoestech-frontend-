@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './dropdown.css';
 
-const Dropdown = ({ activatorText = 'Categories', items = [] }) => {
-  // refs lets you mark an element as important for focus
+const Dropdown = props => {
+  console.log(props.data.data);
+
+  const data = props.data.data;
+
   const activatorRef = useRef(null);
 
   const dropdownListRef = useRef(null);
@@ -46,31 +49,25 @@ const Dropdown = ({ activatorText = 'Categories', items = [] }) => {
   }, [isOpen]);
 
   return (
-    <div className="DropDown" onKeyUp={keyHandler}>
+    <div className="dropdown-wrap">
       {/* button is our activator */}
       <button
         aria-haspopup="true"
         aria-controls="dropdown1"
-        onClick={clickHandler}
-        ref={activatorRef}
-        className="dropdown-ListActivator"
+        className="dropdown-activator"
       >
-        {activatorText}
+        Categories
       </button>
       <ul
         id="dropdown1"
-        ref={dropdownListRef}
         // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
-        className={`dropdown-List ${isOpen ? 'active' : ''}`}
+        className={`dropdown-itemList ${isOpen ? 'active' : ''}`}
         // adding role="list" helps us make sure that assistive technology eg screen readers will annouce how many items are in the list
         role="list"
       >
-        {items.map((item, index) => {
-          return (
-            <li key={index}>
-              <a href={item.url}>item</a>
-            </li>
-          );
+        {data.map((item, index) => {
+          console.log(item);
+          return <li key={index}></li>;
         })}
       </ul>
     </div>

@@ -30175,12 +30175,9 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var Dropdown = function Dropdown(_ref) {
-  var _ref$activatorText = _ref.activatorText,
-      activatorText = _ref$activatorText === void 0 ? 'Categories' : _ref$activatorText,
-      _ref$items = _ref.items,
-      items = _ref$items === void 0 ? [] : _ref$items;
-  // refs lets you mark an element as important for focus
+var Dropdown = function Dropdown(props) {
+  console.log(props.data.data);
+  var data = props.data.data;
   var activatorRef = (0, _react.useRef)(null);
   var dropdownListRef = (0, _react.useRef)(null);
 
@@ -30223,27 +30220,22 @@ var Dropdown = function Dropdown(_ref) {
     }
   }, [isOpen]);
   return _react.default.createElement("div", {
-    className: "DropDown",
-    onKeyUp: keyHandler
+    className: "dropdown-wrap"
   }, _react.default.createElement("button", {
     "aria-haspopup": "true",
     "aria-controls": "dropdown1",
-    onClick: clickHandler,
-    ref: activatorRef,
-    className: "dropdown-ListActivator"
-  }, activatorText), _react.default.createElement("ul", {
-    id: "dropdown1",
-    ref: dropdownListRef // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
+    className: "dropdown-activator"
+  }, "Categories"), _react.default.createElement("ul", {
+    id: "dropdown1" // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
     ,
-    className: "dropdown-List ".concat(isOpen ? 'active' : '') // adding role="list" helps us make sure that assistive technology eg screen readers will annouce how many items are in the list
+    className: "dropdown-itemList ".concat(isOpen ? 'active' : '') // adding role="list" helps us make sure that assistive technology eg screen readers will annouce how many items are in the list
     ,
     role: "list"
-  }, items.map(function (item, index) {
+  }, data.map(function (item, index) {
+    console.log(item);
     return _react.default.createElement("li", {
       key: index
-    }, _react.default.createElement("a", {
-      href: item.url
-    }, "item"));
+    });
   })));
 };
 
@@ -44627,12 +44619,14 @@ var _searchbar = _interopRequireDefault(require("../components/searchbar/searchb
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Navbar(props) {
-  console.log(props.data);
+  // console.log(props);
   return _react.default.createElement("div", {
     className: "navContainer"
   }, _react.default.createElement("div", {
     className: "navlinkscontainer"
-  }, _react.default.createElement("a", null, "Logo"), _react.default.createElement("ul", null, _react.default.createElement("li", null, ' ', _react.default.createElement("a", null, "About me")), _react.default.createElement("li", null, "Dropdown"), _react.default.createElement("li", null, _react.default.createElement("a", null, "contact me")))));
+  }, _react.default.createElement("a", null, "Logo"), _react.default.createElement("ul", null, _react.default.createElement("li", null, ' ', _react.default.createElement("a", null, "About me")), _react.default.createElement("li", null, _react.default.createElement(_dropdown.default, {
+    data: props
+  })), _react.default.createElement("li", null, _react.default.createElement("a", null, "contact me")))));
 }
 
 var _default = Navbar;
@@ -44672,18 +44666,14 @@ var App = function App() {
   (0, _react.useEffect)(function () {
     _axios.default.get(url).then(function (_ref) {
       var data = _ref.data;
-      //   console.log(data.data);
       setIsData(data.data);
     });
   }, []);
-  var mapedData = (0, _react.useMemo)(function () {
-    return isData.map(function (data, index) {
-      console.log(data);
-    });
-  }, [isData]);
   return _react.default.createElement("div", {
     className: "App"
-  }, _react.default.createElement("h2", null, "Welcome"));
+  }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, {
+    data: isData
+  })), _react.default.createElement("h2", null, "Welcome"));
 };
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));

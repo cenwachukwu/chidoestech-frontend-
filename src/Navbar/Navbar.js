@@ -4,7 +4,8 @@ import Dropdown from '../components/dropdown/dropdown';
 import CustomizedInputBase from '../components/searchbar/searchbar';
 
 function Navbar(props) {
-  console.log(props.data);
+  // console.log(props);
+
   return (
     <div className="navContainer">
       <div className="navlinkscontainer">
@@ -14,7 +15,9 @@ function Navbar(props) {
             {' '}
             <a>About me</a>
           </li>
-          <li>Dropdown</li>
+          <li>
+            <Dropdown data={props} />
+          </li>
           <li>
             <a>contact me</a>
           </li>
