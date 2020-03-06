@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import './dropdown.scss';
 
 const Dropdown = props => {
-  console.log(props.data.data);
-
   const data = props.data.data;
 
   const activatorRef = useRef(null);
@@ -49,24 +47,26 @@ const Dropdown = props => {
   }, [isOpen]);
 
   return (
-    <div className="dropdown-wrap">
+    <div className="dropdown-wrap" onKeyUp={keyHandler}>
       {/* button is our activator */}
       <button
         aria-haspopup="true"
         aria-controls="dropdown1"
-        className="dropdown-activator"
+        onClick={clickHandler}
+        ref={activatorRef}
+        className="dropdown-ListActivator"
       >
         Categories
       </button>
       <ul
         id="dropdown1"
+        ref={dropdownListRef}
         // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
         className={`dropdown-itemList ${isOpen ? 'active' : ''}`}
         // adding role="list" helps us make sure that assistive technology eg screen readers will annouce how many items are in the list
         role="list"
       >
         {data.map((item, index) => {
-          console.log(item);
           return (
             <li key={index}>
               <a href="#">{item.blogCategory}</a>

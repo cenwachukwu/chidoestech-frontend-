@@ -30176,7 +30176,6 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Dropdown = function Dropdown(props) {
-  console.log(props.data.data);
   var data = props.data.data;
   var activatorRef = (0, _react.useRef)(null);
   var dropdownListRef = (0, _react.useRef)(null);
@@ -30220,19 +30219,22 @@ var Dropdown = function Dropdown(props) {
     }
   }, [isOpen]);
   return _react.default.createElement("div", {
-    className: "dropdown-wrap"
+    className: "dropdown-wrap",
+    onKeyUp: keyHandler
   }, _react.default.createElement("button", {
     "aria-haspopup": "true",
     "aria-controls": "dropdown1",
-    className: "dropdown-activator"
+    onClick: clickHandler,
+    ref: activatorRef,
+    className: "dropdown-ListActivator"
   }, "Categories"), _react.default.createElement("ul", {
-    id: "dropdown1" // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
+    id: "dropdown1",
+    ref: dropdownListRef // we now say if isOpen is true, we want to add an active class but if its false, dont add a class
     ,
     className: "dropdown-itemList ".concat(isOpen ? 'active' : '') // adding role="list" helps us make sure that assistive technology eg screen readers will annouce how many items are in the list
     ,
     role: "list"
   }, data.map(function (item, index) {
-    console.log(item);
     return _react.default.createElement("li", {
       key: index
     }, _react.default.createElement("a", {
