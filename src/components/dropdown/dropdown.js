@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './dropdown.scss';
 
-const Dropdown = props => {
-  const data = props.data.data;
+const Dropdown = () => {
+  const data = ['Backend', 'Frontend', 'Meetups', 'Styling'];
 
   const activatorRef = useRef(null);
 
@@ -54,7 +54,7 @@ const Dropdown = props => {
         aria-controls="dropdown1"
         onClick={clickHandler}
         ref={activatorRef}
-        className="dropdown-ListActivator"
+        className="dropdown-activator"
       >
         Categories
       </button>
@@ -69,7 +69,7 @@ const Dropdown = props => {
         {data.map((item, index) => {
           return (
             <li key={index}>
-              <a href="#">{item.blogCategory}</a>
+              <a href="#">{item}</a>
             </li>
           );
         })}

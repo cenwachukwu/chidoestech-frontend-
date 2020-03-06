@@ -4,8 +4,8 @@
 .dropdown-activator {
   align-items: center;
   background-color: inherit;
-  border: 1px solid transparent;
-  border-color: #ccc;
+  border: 0.5px solid transparent;
+  border-color: rgb(214, 200, 186);
   color: inherit;
   display: flex;
   font-size: inherit;
@@ -24,11 +24,11 @@
 }
 
 .dropdown-itemList {
-  background-color: #ececec;
+  background-color: rgb(214, 200, 186);
   color: black;
   display: none;
   margin: 0;
-  min-width: 160px;
+  min-width: 130px;
   padding: 0;
   position: absolute;
 
@@ -40,6 +40,7 @@
     a:link {
       display: block;
       padding: 0.5em;
+      color: black;
     }
   }
 

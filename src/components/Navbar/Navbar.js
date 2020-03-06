@@ -1,22 +1,19 @@
 import React from 'react';
 import './Navbar.css';
-import Dropdown from '../components/dropdown/dropdown';
-import CustomizedInputBase from '../components/searchbar/searchbar';
+import Dropdown from '../dropdown/dropdown';
+import CustomizedInputBase from '../searchbar/searchbar';
 
-function Navbar(props) {
-  // console.log(props);
-
+function Navbar() {
   return (
     <div className="navContainer">
       <div className="navlinkscontainer">
         <a>Logo</a>
         <ul>
           <li>
-            {' '}
             <a>About me</a>
           </li>
           <li>
-            <Dropdown data={props} />
+            <Dropdown />
           </li>
           <li>
             <a>contact me</a>
