@@ -68,7 +68,7 @@ const Dropdown = ({ activatorText = 'Categories', items = [] }) => {
         {items.map((item, index) => {
           return (
             <li key={index}>
-              <a href={item.url}>item.text</a>
+              <a href={item.url}>item</a>
             </li>
           );
         })}

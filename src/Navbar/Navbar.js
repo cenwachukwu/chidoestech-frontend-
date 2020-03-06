@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navbar.css';
 import Dropdown from '../components/dropdown/dropdown';
-import Searchbar from '../components/searchbar/searchbar';
+import CustomizedInputBase from '../components/searchbar/searchbar';
 
 function Navbar(props) {
   return (
@@ -13,14 +13,11 @@ function Navbar(props) {
             {' '}
             <a>About me</a>
           </li>
-          <li>
-            <Dropdown />
-          </li>
+          <li>Dropdown</li>
           <li>
             <a>contact me</a>
           </li>
         </ul>
-        <Searchbar />
       </div>
     </div>
   );
