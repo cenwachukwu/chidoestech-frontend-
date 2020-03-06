@@ -30146,7 +30146,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/dropdown/dropdown.css":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/dropdown/dropdown.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -30161,7 +30161,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-require("./dropdown.css");
+require("./dropdown.scss");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -30235,13 +30235,15 @@ var Dropdown = function Dropdown(props) {
     console.log(item);
     return _react.default.createElement("li", {
       key: index
-    });
+    }, _react.default.createElement("a", {
+      href: "#"
+    }, item.blogCategory));
   })));
 };
 
 var _default = Dropdown;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./dropdown.css":"components/dropdown/dropdown.css"}],"../node_modules/@material-ui/core/esm/styles/colorManipulator.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./dropdown.scss":"components/dropdown/dropdown.scss"}],"../node_modules/@material-ui/core/esm/styles/colorManipulator.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './dropdown.css';
+import './dropdown.scss';
 
 const Dropdown = props => {
   console.log(props.data.data);
@@ -67,7 +67,11 @@ const Dropdown = props => {
       >
         {data.map((item, index) => {
           console.log(item);
-          return <li key={index}></li>;
+          return (
+            <li key={index}>
+              <a href="#">{item.blogCategory}</a>
+            </li>
+          );
         })}
       </ul>
     </div>
