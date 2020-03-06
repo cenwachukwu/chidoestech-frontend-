@@ -44663,7 +44663,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var App = function App() {
-  var _useState = (0, _react.useState)(),
+  var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       isData = _useState2[0],
       setIsData = _useState2[1];
@@ -44676,11 +44676,14 @@ var App = function App() {
       setIsData(data.data);
     });
   }, []);
+  var mapedData = (0, _react.useMemo)(function () {
+    return isData.map(function (data, index) {
+      console.log(data);
+    });
+  }, [isData]);
   return _react.default.createElement("div", {
     className: "App"
-  }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, {
-    data: isData
-  })), _react.default.createElement("h2", null, "Welcome"));
+  }, _react.default.createElement("h2", null, "Welcome"));
 };
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));
