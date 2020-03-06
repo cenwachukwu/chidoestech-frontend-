@@ -1,21 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from '@reach/router';
 
-class Carousel extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    // this.onRenderMapData = this.onRenderMapData.bind(this);
-  }
-
-  render() {
-    console.log(this.props.data);
-    return (
-      <div>
-        <h1>block</h1>
-      </div>
-    );
-  }
-}
+const Carousel = props => {
+  return (
+    <div>
+      <h1>block</h1>
+      {props.data.map((photo, index) => {
+        console.log(photo.blogImage);
+      })}
+    </div>
+  );
+};
 
 export default Carousel;
