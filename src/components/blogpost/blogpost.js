@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import './blogpost.css';
+import './blogpost.scss';
 
 const BlogPost = props => {
   //   console.log(props.data);
@@ -11,21 +11,25 @@ const BlogPost = props => {
           console.log(data);
           return (
             <div key={index} className="post-sections">
-              <div className="postDateCreated">
-                <p>{data.dateCreated}</p>
+              <div className="postSubsection">
+                <p className="postDateCreated__Tag">{data.dateCreated}</p>
               </div>
-              <div className="postTitle">
-                <h1>{data.title}</h1>
+              <div className="postSubsection">
+                <h1 className="postTitle__Tag">{data.title}</h1>
               </div>
               <hr></hr>
-              <div className="postImage">
-                <img src={data.blogImage} alt="post thumbnail" />
+              <div className="postSubsection">
+                <img
+                  src={data.blogImage}
+                  alt="post thumbnail"
+                  className="postImage"
+                />
               </div>
-              <div className="postSummary">
-                <p>{data.blogPreview}</p>
+              <div className="postSubsection postPreview">
+                <p className="postPreview__Tag">{data.blogPreview}</p>
               </div>
-              <div className="postReadMoreButton">
-                <button>Read More</button>
+              <div className="postSubsection">
+                <button className="postLink__Tag">Read More</button>
               </div>
               {/* <div className="postShareAndTags">
                 <div className="postTags"></div>

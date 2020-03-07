@@ -46468,7 +46468,7 @@ var Logo = function Logo() {
 
 var _default = Logo;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./logo.css":"components/Logo/logo.css"}],"components/blogpost/blogpost.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./logo.css":"components/Logo/logo.css"}],"components/blogpost/blogpost.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -46483,7 +46483,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-require("./blogpost.css");
+require("./blogpost.scss");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
@@ -46501,25 +46501,34 @@ var BlogPost = function BlogPost(props) {
       key: index,
       className: "post-sections"
     }, _react.default.createElement("div", {
-      className: "postDateCreated"
-    }, _react.default.createElement("p", null, data.dateCreated)), _react.default.createElement("div", {
-      className: "postTitle"
-    }, _react.default.createElement("h1", null, data.title)), _react.default.createElement("hr", null), _react.default.createElement("div", {
-      className: "postImage"
+      className: "postSubsection"
+    }, _react.default.createElement("p", {
+      className: "postDateCreated__Tag"
+    }, data.dateCreated)), _react.default.createElement("div", {
+      className: "postSubsection"
+    }, _react.default.createElement("h1", {
+      className: "postTitle__Tag"
+    }, data.title)), _react.default.createElement("hr", null), _react.default.createElement("div", {
+      className: "postSubsection"
     }, _react.default.createElement("img", {
       src: data.blogImage,
-      alt: "post thumbnail"
+      alt: "post thumbnail",
+      className: "postImage"
     })), _react.default.createElement("div", {
-      className: "postSummary"
-    }, _react.default.createElement("p", null, data.blogPreview)), _react.default.createElement("div", {
-      className: "postReadMoreButton"
-    }, _react.default.createElement("button", null, "Read More")), _react.default.createElement("hr", null));
+      className: "postSubsection postPreview"
+    }, _react.default.createElement("p", {
+      className: "postPreview__Tag"
+    }, data.blogPreview)), _react.default.createElement("div", {
+      className: "postSubsection"
+    }, _react.default.createElement("button", {
+      className: "postLink__Tag"
+    }, "Read More")), _react.default.createElement("hr", null));
   })));
 };
 
 var _default = BlogPost;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./blogpost.css":"components/blogpost/blogpost.css"}],"components/aside/aside.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./blogpost.scss":"components/blogpost/blogpost.scss"}],"components/aside/aside.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);

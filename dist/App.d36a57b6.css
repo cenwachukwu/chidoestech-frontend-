@@ -90,17 +90,56 @@
   font-size: 12rem;
 }
 
+.postSubsection {
+  padding-top: 1.3rem;
+}
+.postSubsection .postDateCreated__Tag {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 100;
+  color: rgba(28, 28, 28, 0.7);
+  padding-top: 0.5rem;
+}
+.postSubsection .postTitle__Tag {
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+}
+.postSubsection .postImage {
+  width: 70%;
+  height: 20rem;
+}
+.postSubsection .postPreview__Tag {
+  text-align: center;
+}
+.postSubsection .postLink__Tag {
+  align-items: center;
+  background-color: #d6c8ba;
+  color: inherit;
+  font-size: 1rem;
+  max-width: 160px;
+  padding: 0.7rem;
+}
+
+.postPreview {
+  margin: 0 auto;
+  width: 90%;
+}
+
+hr {
+  margin: 1rem;
+  color: #d6c8ba;
+}
 .blog-sections {
   width: 100%;
   height: 100%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 
 .sections {
   margin: 0 auto;
   width: 95%;
   height: 100%;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -109,12 +148,14 @@
 .blogposts {
   width: 70%;
   height: 100%;
-  border: 2px solid black;
+  padding: 1rem;
+  /* border: 2px solid black; */
 }
 
 .aside {
   width: 30%;
   height: 100%;
+  padding: 1rem;
   border: 2px solid red;
 }
 
