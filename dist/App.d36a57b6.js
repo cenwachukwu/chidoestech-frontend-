@@ -46495,9 +46495,26 @@ var BlogPost = function BlogPost(props) {
     className: "blogPost"
   }, _react.default.createElement("div", {
     className: "blogPost-sections"
-  }, _react.default.createElement("div", {
-    className: "post-bsections"
-  }, _react.default.createElement("h1", null, "post"))));
+  }, props.data.map(function (data, index) {
+    console.log(data);
+    return _react.default.createElement("div", {
+      key: index,
+      className: "post-sections"
+    }, _react.default.createElement("div", {
+      className: "postDateCreated"
+    }, _react.default.createElement("p", null, data.dateCreated)), _react.default.createElement("div", {
+      className: "postTitle"
+    }, _react.default.createElement("h1", null, data.title)), _react.default.createElement("hr", null), _react.default.createElement("div", {
+      className: "postImage"
+    }, _react.default.createElement("img", {
+      src: data.blogImage,
+      alt: "post thumbnail"
+    })), _react.default.createElement("div", {
+      className: "postSummary"
+    }, _react.default.createElement("p", null, data.blogPreview)), _react.default.createElement("div", {
+      className: "postReadMoreButton"
+    }, _react.default.createElement("button", null, "Read More")), _react.default.createElement("hr", null));
+  })));
 };
 
 var _default = BlogPost;
