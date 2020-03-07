@@ -46453,6 +46453,12 @@ var Carousel = function Carousel(props) {
       isCurrentImageIndex = _useState2[0],
       setIsCurrentImageIndex = _useState2[1];
 
+  var prevSlide = function prevSlide(e) {
+    var lastIndex = isCurrentImageIndex - 1;
+  };
+
+  var nextSlide = function nextSlide(e) {};
+
   return _react.default.createElement("div", {
     className: "carousel"
   }, _react.default.createElement("h1", null, "block"), props.data.map(function (photo, index) {
@@ -46467,7 +46473,52 @@ var Carousel = function Carousel(props) {
 
 var _default = Carousel;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"Pages/Home/Home.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"components/Logo/logo.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Logo/logo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _router = require("@reach/router");
+
+require("./logo.css");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var Logo = function Logo(props) {
+  return _react.default.createElement("div", {
+    className: "logo-container"
+  }, _react.default.createElement("div", {
+    className: "logo-box"
+  }, _react.default.createElement("div", {
+    className: "logo-item"
+  }, _react.default.createElement("h1", {
+    className: "logo"
+  }, "Chi")), _react.default.createElement("div", {
+    className: "logo-item"
+  }, _react.default.createElement("h1", {
+    className: "logo"
+  }, "Does")), _react.default.createElement("div", {
+    className: "logo-item"
+  }, _react.default.createElement("h1", {
+    className: "logo"
+  }, "Tech"))));
+};
+
+var _default = Logo;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./logo.css":"components/Logo/logo.css"}],"Pages/Home/Home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46479,6 +46530,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _carousel = _interopRequireDefault(require("../../components/carousel/carousel"));
 
+var _logo = _interopRequireDefault(require("../../components/Logo/logo"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -46489,14 +46542,12 @@ var Home = function Home(props) {
   //   console.log(props.data);
   return _react.default.createElement("div", {
     className: "Home"
-  }, _react.default.createElement(_carousel.default, {
-    data: props.data
-  }), _react.default.createElement("h2", null, "We are home"));
+  }, _react.default.createElement(_logo.default, null), _react.default.createElement("h2", null, "We are home"));
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../components/carousel/carousel":"components/carousel/carousel.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../components/carousel/carousel":"components/carousel/carousel.js","../../components/Logo/logo":"components/Logo/logo.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
