@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from '@reach/router';
 import './logo.css';
 
-const Logo = props => {
+const Logo = () => {
   return (
     <div className="logo-container">
       <div className="logo-box">

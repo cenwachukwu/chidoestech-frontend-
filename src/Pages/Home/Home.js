@@ -1,13 +1,23 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import Carousel from '../../components/carousel/carousel';
 import Logo from '../../components/Logo/logo';
+import BlogPost from '../../components/blogpost/blogpost';
+import Aside from '../../components/aside/aside';
+import './Home.css';
 
 const Home = props => {
-  //   console.log(props.data);
   return (
     <div className="Home">
       <Logo />
-      <h2>We are home</h2>
+      <div className="blog-sections">
+        <div className="sections">
+          <div className="blogposts">
+            <BlogPost data={props.data} />
+          </div>
+          <div className="aside">
+            <Aside data={props.data} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

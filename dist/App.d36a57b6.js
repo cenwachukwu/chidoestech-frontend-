@@ -46423,57 +46423,7 @@ var Navbar = function Navbar() {
 
 var _default = Navbar;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Navbar.css":"components/Navbar/Navbar.css","../dropdown/dropdown":"components/dropdown/dropdown.js","../searchbar/searchbar":"components/searchbar/searchbar.js"}],"components/carousel/carousel.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _router = require("@reach/router");
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var Carousel = function Carousel(props) {
-  var _useState = (0, _react.useState)(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      isCurrentImageIndex = _useState2[0],
-      setIsCurrentImageIndex = _useState2[1];
-
-  var prevSlide = function prevSlide(e) {
-    var lastIndex = isCurrentImageIndex - 1;
-  };
-
-  var nextSlide = function nextSlide(e) {};
-
-  return _react.default.createElement("div", {
-    className: "carousel"
-  }, _react.default.createElement("h1", null, "block"), props.data.map(function (photo, index) {
-    console.log(photo.blogImage);
-    return _react.default.createElement("img", {
-      key: index,
-      src: photo.blogImage,
-      alt: "blog post thumbnail"
-    });
-  }));
-};
-
-var _default = Carousel;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js"}],"components/Logo/logo.css":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Navbar.css":"components/Navbar/Navbar.css","../dropdown/dropdown":"components/dropdown/dropdown.js","../searchbar/searchbar":"components/searchbar/searchbar.js"}],"components/Logo/logo.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -46496,7 +46446,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var Logo = function Logo(props) {
+var Logo = function Logo() {
   return _react.default.createElement("div", {
     className: "logo-container"
   }, _react.default.createElement("div", {
@@ -46518,7 +46468,12 @@ var Logo = function Logo(props) {
 
 var _default = Logo;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./logo.css":"components/Logo/logo.css"}],"Pages/Home/Home.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","@reach/router":"../node_modules/@reach/router/es/index.js","./logo.css":"components/Logo/logo.css"}],"components/blogpost/blogpost.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/blogpost/blogpost.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46528,9 +46483,81 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _carousel = _interopRequireDefault(require("../../components/carousel/carousel"));
+require("./blogpost.css");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var BlogPost = function BlogPost(props) {
+  //   console.log(props.data);
+  return _react.default.createElement("div", {
+    className: "blogPost"
+  }, _react.default.createElement("div", {
+    className: "blogPost-sections"
+  }, _react.default.createElement("div", {
+    className: "post-bsections"
+  }, _react.default.createElement("h1", null, "post"))));
+};
+
+var _default = BlogPost;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./blogpost.css":"components/blogpost/blogpost.css"}],"components/aside/aside.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/aside/aside.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+require("./aside.css");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var Aside = function Aside(props) {
+  //   console.log(props.data);
+  return _react.default.createElement("div", {
+    className: "blogAside"
+  }, _react.default.createElement("div", {
+    className: "blogAside-sections"
+  }, _react.default.createElement("div", {
+    className: "aside-sections"
+  }, _react.default.createElement("h1", null, "sections"))));
+};
+
+var _default = Aside;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./aside.css":"components/aside/aside.css"}],"Pages/Home/Home.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"Pages/Home/Home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
 
 var _logo = _interopRequireDefault(require("../../components/Logo/logo"));
+
+var _blogpost = _interopRequireDefault(require("../../components/blogpost/blogpost"));
+
+var _aside = _interopRequireDefault(require("../../components/aside/aside"));
+
+require("./Home.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46539,15 +46566,26 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var Home = function Home(props) {
-  //   console.log(props.data);
   return _react.default.createElement("div", {
     className: "Home"
-  }, _react.default.createElement(_logo.default, null), _react.default.createElement("h2", null, "We are home"));
+  }, _react.default.createElement(_logo.default, null), _react.default.createElement("div", {
+    className: "blog-sections"
+  }, _react.default.createElement("div", {
+    className: "sections"
+  }, _react.default.createElement("div", {
+    className: "blogposts"
+  }, _react.default.createElement(_blogpost.default, {
+    data: props.data
+  })), _react.default.createElement("div", {
+    className: "aside"
+  }, _react.default.createElement(_aside.default, {
+    data: props.data
+  })))));
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../../components/carousel/carousel":"components/carousel/carousel.js","../../components/Logo/logo":"components/Logo/logo.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../components/Logo/logo":"components/Logo/logo.js","../../components/blogpost/blogpost":"components/blogpost/blogpost.js","../../components/aside/aside":"components/aside/aside.js","./Home.css":"Pages/Home/Home.css"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireWildcard(require("react"));
@@ -46594,7 +46632,7 @@ var App = function App() {
   }, _react.default.createElement("nav", null, _react.default.createElement(_Navbar.default, null)), _react.default.createElement(_router.Router, null, _react.default.createElement(_Home.default, {
     path: "/",
     data: isData
-  })), _react.default.createElement("h2", null, "Welcome")));
+  }))));
 };
 
 _reactDom.default.render(_react.default.createElement(App, null), document.getElementById('root'));

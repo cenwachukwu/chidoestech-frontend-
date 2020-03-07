@@ -25,7 +25,6 @@ const App = () => {
         <Router>
           <Home path="/" data={isData} />
         </Router>
-        <h2>Welcome</h2>
       </div>
     </React.StrictMode>
   );
